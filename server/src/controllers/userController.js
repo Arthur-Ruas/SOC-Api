@@ -10,7 +10,7 @@ routes.post('/', async(request, response) => {
       return response.status(400).send({message: 'A senha não pode ter menos de 10 caracteres!'});
     } 
 
-    db.createUser(userEmail, idEtec, userLogin, userPassword);
+    await db.createUser(userEmail, idEtec, userLogin, userPassword);
 
     return response.status(201).send({message: 'Usuário criado com sucesso!!'})
   }
