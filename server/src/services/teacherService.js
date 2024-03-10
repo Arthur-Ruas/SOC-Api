@@ -9,11 +9,11 @@ async function createTeacher(teacherName, teacherColorCard, teacherArraySubject,
   const conn = await database.connect();
   await conn.query(sql, dataTeacher);
 
-  teacherArraySubject.forEach(async (Subject) => {
+  teacherArraySubject.forEach(async (subject) => {
     const sql= `insert into tb_profMaterias (id_prof, id_materia) 
     values ((select max(id) from tb_prof), ?)`
 
-    const dataSubject = [Subject];
+    const dataSubject = [subject];
 
     await conn.query(sql, dataSubject);
   });
