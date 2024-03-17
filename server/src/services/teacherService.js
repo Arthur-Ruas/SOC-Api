@@ -1,6 +1,6 @@
 import database from '../repository/connectmysql.js';
 
-async function createTeacher(teacherName, teacherColorCard, teacherArraySubject, teacherNote){
+async function createTeacher(teacherName, teacherColorCard, teacherArraySubjects, teacherNote){
   const sql = `insert into tb_prof (nome, corCard, observacao) 
   values(?,?,?)`;
 
@@ -9,7 +9,7 @@ async function createTeacher(teacherName, teacherColorCard, teacherArraySubject,
   const conn = await database.connect();
   await conn.query(sql, dataTeacher);
 
-  teacherArraySubject.forEach(async (subject) => {
+  teacherArraySubjects.forEach(async (subject) => {
     const sql= `insert into tb_profMaterias (id_prof, id_materia) 
     values ((select max(id) from tb_prof), ?)`
 

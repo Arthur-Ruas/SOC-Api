@@ -3,10 +3,10 @@ import db from "../services/teacherService.js"
 const routes = express.Router()
 
 routes.post('/', async (request, response) => {
-    const {teacherName, teacherColorCard, teacherArraySubject, teacherNote} = request.body;
+    const {teacherName, teacherColorCard, teacherArraySubjects, teacherNote} = request.body;
 
     //const user =
-    await db.createTeacher(teacherName, teacherColorCard, teacherArraySubject, teacherNote);
+    await db.createTeacher(teacherName, teacherColorCard, teacherArraySubjects, teacherNote);
 
 })
 
