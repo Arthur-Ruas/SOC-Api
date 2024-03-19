@@ -1,5 +1,6 @@
 import express from "express";
-import db from "../services/subjectsController.js"
+import db from "../services/subjectsService.js";
+
 const routes = express.Router()
 
 routes.get('/', async (request, response) => {

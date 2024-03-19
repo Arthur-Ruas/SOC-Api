@@ -8,7 +8,6 @@ async function getSubjects(){
     const [rows] = await conn.query(sql);
     conn.end();
     return rows;
-  
 }
 
 export default {getSubjects}

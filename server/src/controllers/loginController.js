@@ -1,5 +1,6 @@
 import express from "express";
-import db from "../services/loginService.js"
+import db from "../services/loginService.js";
+
 const routes = express.Router()
 
 routes.post('/', async (request, response) => {

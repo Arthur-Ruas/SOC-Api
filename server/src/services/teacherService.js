@@ -21,7 +21,7 @@ async function createTeacher(teacherName, teacherColorCard, teacherArraySubjects
   conn.end();
 }
 
-async function getTeacher() {
+async function getTeacher(){
 
   const sql = `select
   id as Id, nome as Nome, corCard as corCard
