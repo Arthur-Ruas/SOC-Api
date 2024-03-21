@@ -1,7 +1,7 @@
 import database from '../repository/connectmysql.js';
 
 async function createSchedule(scheduleName, classDivision, classModule){
-  const sql = `insert into tb_horario_info (nome, divisao_turma, modulo) 
+  const sql = `insert into tbl_horarios_informacoes (nome, divisao_turma, modulo) 
   values(?,?,?)`;
 
   const dataSchedule = [scheduleName, classDivision, classModule];
@@ -14,7 +14,7 @@ async function createSchedule(scheduleName, classDivision, classModule){
 
 async function getSchedules(){
 
-    const sql = `select nome, divisao_turma, modulo from tb_horario_info`
+    const sql = `select nome, divisao_turma, modulo from tbl_horarios_informacoes`
 
     const conn = await database.connect();
     const [rows] = await conn.query(sql);

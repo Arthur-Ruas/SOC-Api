@@ -2,12 +2,12 @@ import database from '../repository/connectmysql.js';
 
 async function getTeacherSubjects(id){
 
-    const sql = `SELECT 
-    tb_profMaterias.id_prof as IdProf, tb_materias.nome as Nome 
-    FROM tb_profMaterias 
-    inner join tb_prof on tb_prof.id = tb_profMaterias.id_prof
-    inner join tb_materias on tb_materias.id = tb_profMaterias.id_materia
-    where tb_prof.id = ?`
+    const sql = `select
+    tbl_rel_professores_materias.id_prof as IdProf, tbl_materias.nome as Nome 
+    FROM tbl_rel_professores_materias 
+    inner join tbl_professores on tbl_prof.id = tbl_rel_professores_materias.id_prof
+    inner join tbl_materias on tbl_materias.id = tbl_rel_professores_materias.id_materia
+    where tbl_professores.id = ?`
 
     const data = [id];
   
@@ -19,11 +19,11 @@ async function getTeacherSubjects(id){
 
 async function getTeacherInfo(id){
 
-    const sql = `SELECT 
+    const sql = `select
     nome as NomeProf,
-    dataCriacao as DataCriacao,
+    data_criacao as DataCriacao,
     observacao as Observacao
-    FROM tb_prof 
+    FROM tbl_professores 
     where id = ?`
 
     const data = [id];

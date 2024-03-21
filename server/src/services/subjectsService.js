@@ -2,7 +2,7 @@ import database from '../repository/connectmysql.js';
 
 async function getSubjects(){
 
-    const sql = "select * from tb_materias where id_modulo = 1" 
+    const sql = "select * from tbl_materias where id_modulo = 1" 
   
     const conn = await database.connect();
     const [rows] = await conn.query(sql);

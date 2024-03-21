@@ -1,7 +1,7 @@
 import database from '../repository/connectmysql.js';
 
 async function createUser(userEmail, idEtec, userLogin, userPassword){
-  const sql = `insert into tb_user (email, cod_etec, login, senha) 
+  const sql = `insert into tbl_usuarios (email, cod_etec, login, senha) 
   values(?,?,?,?)`;
 
   const dataUser = [userEmail, idEtec, userLogin, userPassword];
